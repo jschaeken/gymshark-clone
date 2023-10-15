@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gymshark_clone/core/components.dart/category_box.dart';
 import 'package:gymshark_clone/core/constants.dart';
+import 'package:gymshark_clone/domain/models/category.dart';
 
-import '../core/components.dart/icon_components.dart';
-import '../core/components.dart/text_components.dart';
+import '../../core/components.dart/icon_components.dart';
+import '../../core/components.dart/text_components.dart';
 
 class ExplorePage extends StatefulWidget {
   const ExplorePage({required this.pageTitle, super.key});
@@ -16,6 +18,33 @@ class ExplorePage extends StatefulWidget {
 
 class _ExplorePageState extends State<ExplorePage> {
   late String pageTitle;
+
+  List<Category> demoCategories = [
+    Category(
+      id: '1',
+      imageUrl: 'https://picsum.photos/701',
+      title: 'CATEGORY 1',
+      subtitle: 'Subtitle 1',
+    ),
+    Category(
+      id: '2',
+      imageUrl: 'https://picsum.photos/702',
+      title: 'CATEGORY 2',
+      subtitle: 'Subtitle 2',
+    ),
+    Category(
+      id: '3',
+      imageUrl: 'https://picsum.photos/703',
+      title: 'CATEGORY 3',
+      subtitle: 'Subtitle 3',
+    ),
+    Category(
+      id: '4',
+      imageUrl: 'https://picsum.photos/704',
+      title: 'CATEGORY 4',
+      subtitle: 'Subtitle 4',
+    ),
+  ];
 
   @override
   void initState() {
@@ -70,22 +99,16 @@ class _ExplorePageState extends State<ExplorePage> {
               // Categories
               ListView.builder(
                 shrinkWrap: true,
-                itemCount: 4,
+                itemCount: demoCategories.length,
                 physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: Constants.padding,
-                    child: Container(
-                      height: 400,
-                      decoration: BoxDecoration(
-                        borderRadius: Constants.borderRadius,
-                        image: const DecorationImage(
-                          fit: BoxFit.cover,
-                          image: NetworkImage(
-                            'https://picsum.photos/700',
-                          ),
-                        ),
-                      ),
+                    child: CategoryImageBox(
+                      imageUrl: demoCategories[index].imageUrl,
+                      title: demoCategories[index].title,
+                      subtitle: demoCategories[index].subtitle,
+                      onTap: () {},
                     ),
                   );
                 },

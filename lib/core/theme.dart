@@ -29,6 +29,16 @@ class CustomTheme {
         fontWeight: FontWeight.bold,
         color: Colors.black,
       ),
+      headlineSmall: GoogleFonts.inter(
+        fontSize: 16,
+        fontWeight: FontWeight.w400,
+        color: Colors.black,
+      ),
+      displayMedium: GoogleFonts.inter(
+        fontSize: 30,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+      ),
     ),
   );
 }
