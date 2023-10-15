@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         theme: CustomTheme.lightTheme,
         darkTheme: ThemeData.dark(),
         themeMode: ThemeMode.light,
-        home: MainView(),
+        home: const MainView(),
       ),
     );
   }

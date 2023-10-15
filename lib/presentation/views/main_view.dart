@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gymshark_clone/core/config.dart';
 import 'package:gymshark_clone/domain/models/tab_bar_item.dart';
 import 'package:gymshark_clone/presentation/pages/explore_page.dart';
+import 'package:gymshark_clone/presentation/pages/shop_page.dart';
 import 'package:gymshark_clone/presentation/state_managment/navigation_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -17,14 +18,24 @@ class _MainViewState extends State<MainView> {
 
   final List<Widget> tabBarPages = [
     const ExplorePage(pageTitle: 'EXPLORE'),
-    Container(
-      color: Colors.blue,
-    ),
+    const ShopPage(pageTitle: 'SHOP'),
     Container(
       color: Colors.green,
+      child: const Center(
+        child: Text('Bag'),
+      ),
     ),
     Container(
       color: Colors.yellow,
+      child: const Center(
+        child: Text('Favorites'),
+      ),
+    ),
+    Container(
+      color: Colors.purple,
+      child: const Center(
+        child: Text('Profile'),
+      ),
     ),
   ];
 

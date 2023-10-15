@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:gymshark_clone/core/components.dart/icon_components.dart';
 import 'package:gymshark_clone/core/components.dart/text_components.dart';
 import 'package:gymshark_clone/core/constants.dart';
@@ -10,6 +11,7 @@ class CategoryImageBox extends StatelessWidget {
     required this.title,
     required this.subtitle,
     required this.onTap,
+    this.height = 400,
     super.key,
   });
 
@@ -17,13 +19,14 @@ class CategoryImageBox extends StatelessWidget {
   final String title;
   final String subtitle;
   final Function onTap;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => onTap(),
       child: Container(
-        height: 400,
+        height: height,
         decoration: BoxDecoration(
           borderRadius: Constants.borderRadius,
           image: DecorationImage(
@@ -75,16 +78,40 @@ class CategoryImageBox extends StatelessWidget {
                   ),
 
                   // Forward Arrow Icon
-                  Container(
-                    padding: Constants.padding,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
-                      color: Theme.of(context).canvasColor,
-                    ),
-                    child: const CustomIcon(
-                      CupertinoIcons.chevron_forward,
-                    ),
-                  ),
+                  Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(100),
+                          color: Colors.white.withOpacity(0.5),
+                        ),
+                        height: 70,
+                        width: 70,
+                      )
+                          .animate(
+                            onPlay: (controller) =>
+                                controller.repeat(reverse: true),
+                          )
+                          .scaleXY(
+                            begin: 1,
+                            end: .5,
+                            duration: 800.ms,
+                          )
+                          .fade()
+                          .then(delay: 800.ms),
+                      Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(100),
+                          color: Theme.of(context).canvasColor,
+                        ),
+                        child: const CustomIcon(
+                          CupertinoIcons.chevron_forward,
+                        ),
+                      ),
+                    ],
+                  )
                 ],
               ),
             ),
