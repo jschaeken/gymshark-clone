@@ -12,12 +12,12 @@ class CustomTheme {
     shadowColor: Colors.grey[300],
     splashColor: Colors.black,
     canvasColor: Colors.white,
-    dividerColor: Colors.black,
+    dividerColor: Colors.grey[300],
     primaryColorDark: Colors.black,
     primaryColorLight: Colors.black,
     disabledColor: Colors.black,
     highlightColor: Colors.black,
-    indicatorColor: Colors.black,
+    indicatorColor: const Color.fromARGB(255, 163, 246, 175),
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.white,
       foregroundColor: Colors.black,
@@ -28,7 +28,7 @@ class CustomTheme {
     ),
     secondaryHeaderColor: Colors.black,
     dialogBackgroundColor: Colors.white,
-    unselectedWidgetColor: Colors.black,
+    unselectedWidgetColor: Colors.grey[600],
     applyElevationOverlayColor: true,
     scaffoldBackgroundColor: Colors.white,
     textTheme: TextTheme(

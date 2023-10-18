@@ -47,8 +47,29 @@ class _CategoryShopState extends State<CategoryShop> {
   List<Product> demoProducts = [
     Product(
       name: 'Optibac Immune Support',
-      imageUrls: [
-        'https://abclive1.s3.amazonaws.com/1a901430-9efa-45a3-acc9-316f439be1ee/productimage/OPTV052___8___L.jpg'
+      rating: Rating(
+        average: 4.5,
+        count: 100,
+      ),
+      variants: [
+        ProductVariant(
+          name: 'Optibac Immune Support Variant 1',
+          imageUrls: [
+            'https://picsum.photos/912',
+            'https://picsum.photos/913',
+          ],
+          color: 'Red',
+          isFavorite: false,
+        ),
+        ProductVariant(
+          name: 'Optibac Immune Support Variant 2',
+          imageUrls: [
+            'https://picsum.photos/914',
+            'https://picsum.photos/915',
+          ],
+          color: 'Blue',
+          isFavorite: false,
+        ),
       ],
       price: 500.00,
       description: 'Product 1 description',
@@ -56,8 +77,29 @@ class _CategoryShopState extends State<CategoryShop> {
     ),
     Product(
       name: 'Optibac Every Day',
-      imageUrls: [
-        'https://abclive1.s3.amazonaws.com/1a901430-9efa-45a3-acc9-316f439be1ee/productimage/OPTV056___7___L.jpg'
+      rating: Rating(
+        average: 4,
+        count: 100,
+      ),
+      variants: [
+        ProductVariant(
+          name: 'Optibac Every Day Variant 1',
+          imageUrls: [
+            'https://picsum.photos/912',
+            'https://picsum.photos/913',
+          ],
+          color: 'Red',
+          isFavorite: false,
+        ),
+        ProductVariant(
+          name: 'Optibac Every Day Variant 2',
+          imageUrls: [
+            'https://picsum.photos/914',
+            'https://picsum.photos/915',
+          ],
+          color: 'Blue',
+          isFavorite: false,
+        ),
       ],
       price: 50.00,
       description: 'Product 2 description',
@@ -65,8 +107,29 @@ class _CategoryShopState extends State<CategoryShop> {
     ),
     Product(
       name: 'Revive Active',
-      imageUrls: [
-        'https://abclive1.s3.amazonaws.com/1a901430-9efa-45a3-acc9-316f439be1ee/productimage/REVV063___5___L.jpg'
+      rating: Rating(
+        average: 3.2,
+        count: 89,
+      ),
+      variants: [
+        ProductVariant(
+          name: 'Revive Active Variant 1',
+          imageUrls: [
+            'https://picsum.photos/912',
+            'https://picsum.photos/913',
+          ],
+          color: 'Red',
+          isFavorite: false,
+        ),
+        ProductVariant(
+          name: 'Revive Active Variant 2',
+          imageUrls: [
+            'https://picsum.photos/914',
+            'https://picsum.photos/915',
+          ],
+          color: 'Blue',
+          isFavorite: false,
+        ),
       ],
       price: 2000.00,
       description: 'Product 3 description',
@@ -74,8 +137,29 @@ class _CategoryShopState extends State<CategoryShop> {
     ),
     Product(
         name: 'Vital Proteins',
-        imageUrls: [
-          'https://abclive1.s3.amazonaws.com/1a901430-9efa-45a3-acc9-316f439be1ee/productimage/WHLV085___L.jpg'
+        rating: Rating(
+          average: 6,
+          count: 0,
+        ),
+        variants: [
+          ProductVariant(
+            name: 'Vital Proteins Variant 1',
+            imageUrls: [
+              'https://picsum.photos/912',
+              'https://picsum.photos/913',
+            ],
+            color: 'Red',
+            isFavorite: false,
+          ),
+          ProductVariant(
+            name: 'Vital Proteins Variant 2',
+            imageUrls: [
+              'https://picsum.photos/914',
+              'https://picsum.photos/915',
+            ],
+            color: 'Blue',
+            isFavorite: false,
+          ),
         ],
         price: 150.00,
         description: 'Product 4 description',

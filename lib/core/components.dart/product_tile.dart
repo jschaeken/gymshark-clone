@@ -41,7 +41,7 @@ class LargeProductTile extends StatelessWidget {
                       Padding(
                         padding: Constants.padding,
                         child: Image.network(
-                          product.imageUrls[0],
+                          product.variants[0].imageUrls[0],
                           fit: BoxFit.cover,
                         ),
                       ),
