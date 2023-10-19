@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gymshark_clone/core/config.dart';
 import 'package:gymshark_clone/domain/models/tab_bar_item.dart';
+import 'package:gymshark_clone/presentation/pages/accounts_page.dart';
+import 'package:gymshark_clone/presentation/pages/bag_page.dart';
 import 'package:gymshark_clone/presentation/pages/explore_page.dart';
+import 'package:gymshark_clone/presentation/pages/favourites_page.dart';
 import 'package:gymshark_clone/presentation/pages/shop_page.dart';
 import 'package:gymshark_clone/presentation/state_managment/navigation_provider.dart';
 import 'package:provider/provider.dart';
@@ -15,52 +18,37 @@ class MainView extends StatefulWidget {
 
 class _MainViewState extends State<MainView> {
   final List<TabBarItem> tabBarItems = Config.tabBarItems;
+  late List<GlobalKey<NavigatorState>> keys;
 
   final List<Widget> tabBarPages = [
     const ExplorePage(pageTitle: 'EXPLORE'),
     const ShopPage(pageTitle: 'SHOP'),
-    Container(
-      color: Colors.green,
-      child: const Center(
-        child: Text('Bag'),
-      ),
-    ),
-    Container(
-      color: Colors.yellow,
-      child: const Center(
-        child: Text('Favorites'),
-      ),
-    ),
-    Container(
-      color: Colors.purple,
-      child: const Center(
-        child: Text('Profile'),
-      ),
-    ),
+    const BagPage(pageTitle: 'BAG'),
+    const FavoritesPage(pageTitle: 'FAVORITES'),
+    const AccountPage(pageTitle: 'ACCOUNT'),
   ];
-
-  final PageController pageController = PageController(
-    initialPage: 0,
-  );
 
   @override
   void initState() {
     super.initState();
-    //listen for changes in the current index from the provider
-    context.read<PageNavigationProvider>().addListener(() {
-      pageController
-          .jumpToPage(context.read<PageNavigationProvider>().currentIndex);
-    });
+    keys = tabBarPages.map((page) => GlobalKey<NavigatorState>()).toList();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: PageView(
-          physics: const NeverScrollableScrollPhysics(),
-          controller: pageController,
-          children: tabBarPages,
+        child: IndexedStack(
+          index: context.watch<PageNavigationProvider>().currentIndex,
+          children: [
+            ...tabBarPages.map(
+              (page) => OffstageNavigator(
+                index: tabBarPages.indexOf(page),
+                navKey: keys[tabBarPages.indexOf(page)],
+                child: page,
+              ),
+            ),
+          ],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -78,6 +66,33 @@ class _MainViewState extends State<MainView> {
         type: BottomNavigationBarType.fixed,
         onTap: (value) {
           context.read<PageNavigationProvider>().changeIndex(value);
+        },
+      ),
+    );
+  }
+}
+
+class OffstageNavigator extends StatelessWidget {
+  const OffstageNavigator(
+      {required this.child,
+      required this.index,
+      required this.navKey,
+      super.key});
+
+  final Widget child;
+  final int index;
+  final GlobalKey<NavigatorState> navKey;
+
+  @override
+  Widget build(BuildContext context) {
+    return Offstage(
+      offstage: context.watch<PageNavigationProvider>().currentIndex != index,
+      child: Navigator(
+        key: navKey,
+        onGenerateRoute: (routeSettings) {
+          return MaterialPageRoute(
+            builder: (context) => child,
+          );
         },
       ),
     );

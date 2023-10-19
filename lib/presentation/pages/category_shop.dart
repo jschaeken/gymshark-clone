@@ -58,6 +58,7 @@ class _CategoryShopState extends State<CategoryShop> {
             'https://picsum.photos/912',
             'https://picsum.photos/913',
           ],
+          price: 100.00,
           color: 'Red',
           isFavorite: false,
         ),
@@ -67,11 +68,11 @@ class _CategoryShopState extends State<CategoryShop> {
             'https://picsum.photos/914',
             'https://picsum.photos/915',
           ],
+          price: 100.00,
           color: 'Blue',
           isFavorite: false,
         ),
       ],
-      price: 500.00,
       description: 'Product 1 description',
       isFavorite: true,
     ),
@@ -83,6 +84,7 @@ class _CategoryShopState extends State<CategoryShop> {
       ),
       variants: [
         ProductVariant(
+          price: 100.00,
           name: 'Optibac Every Day Variant 1',
           imageUrls: [
             'https://picsum.photos/912',
@@ -92,6 +94,7 @@ class _CategoryShopState extends State<CategoryShop> {
           isFavorite: false,
         ),
         ProductVariant(
+          price: 100.00,
           name: 'Optibac Every Day Variant 2',
           imageUrls: [
             'https://picsum.photos/914',
@@ -101,7 +104,6 @@ class _CategoryShopState extends State<CategoryShop> {
           isFavorite: false,
         ),
       ],
-      price: 50.00,
       description: 'Product 2 description',
       isFavorite: false,
     ),
@@ -113,6 +115,7 @@ class _CategoryShopState extends State<CategoryShop> {
       ),
       variants: [
         ProductVariant(
+          price: 100.00,
           name: 'Revive Active Variant 1',
           imageUrls: [
             'https://picsum.photos/912',
@@ -122,6 +125,7 @@ class _CategoryShopState extends State<CategoryShop> {
           isFavorite: false,
         ),
         ProductVariant(
+          price: 100.00,
           name: 'Revive Active Variant 2',
           imageUrls: [
             'https://picsum.photos/914',
@@ -131,7 +135,6 @@ class _CategoryShopState extends State<CategoryShop> {
           isFavorite: false,
         ),
       ],
-      price: 2000.00,
       description: 'Product 3 description',
       isFavorite: false,
     ),
@@ -143,6 +146,7 @@ class _CategoryShopState extends State<CategoryShop> {
         ),
         variants: [
           ProductVariant(
+            price: 100.00,
             name: 'Vital Proteins Variant 1',
             imageUrls: [
               'https://picsum.photos/912',
@@ -152,6 +156,7 @@ class _CategoryShopState extends State<CategoryShop> {
             isFavorite: false,
           ),
           ProductVariant(
+            price: 100.00,
             name: 'Vital Proteins Variant 2',
             imageUrls: [
               'https://picsum.photos/914',
@@ -161,7 +166,6 @@ class _CategoryShopState extends State<CategoryShop> {
             isFavorite: false,
           ),
         ],
-        price: 150.00,
         description: 'Product 4 description',
         isFavorite: true),
   ];

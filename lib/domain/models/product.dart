@@ -1,6 +1,7 @@
+import 'package:gymshark_clone/domain/models/size.dart';
+
 class Product {
   String name;
-  double price;
   String description;
   bool isFavorite;
   List<ProductVariant> variants;
@@ -8,7 +9,6 @@ class Product {
 
   Product({
     required this.name,
-    required this.price,
     required this.description,
     required this.isFavorite,
     required this.variants,
@@ -30,12 +30,16 @@ class ProductVariant {
   String name;
   String color;
   bool isFavorite;
+  double price;
   List<String> imageUrls;
+  List<Size>? sizes;
 
   ProductVariant({
     required this.name,
     required this.color,
     required this.isFavorite,
     required this.imageUrls,
+    required this.price,
+    this.sizes,
   });
 }

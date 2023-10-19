@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:gymshark_clone/core/components.dart/header.dart';
+import 'package:gymshark_clone/core/components.dart/layout.dart';
 import 'package:gymshark_clone/core/constants.dart';
 import 'package:gymshark_clone/presentation/pages/category_shop.dart';
 
@@ -63,10 +63,10 @@ class _ShopPageState extends State<ShopPage>
       children: [
         Column(
           children: [
-            HeaderRow(pageTitle: pageTitle, accountInitials: accountInitials),
-            // Search Bar
-            Padding(
-              padding: Constants.padding,
+            HeaderRow(
+              pageTitle: pageTitle,
+              accountInitials: accountInitials,
+              shadow: false,
               child: CustomSearchBar(controller: searchController),
             ),
             // Categories Tab Bar

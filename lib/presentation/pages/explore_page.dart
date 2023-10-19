@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:gymshark_clone/core/components.dart/category_box.dart';
-import 'package:gymshark_clone/core/components.dart/header.dart';
+import 'package:gymshark_clone/core/components.dart/layout.dart';
 // import 'package:gymshark_clone/core/components.dart/header.dart';
 import 'package:gymshark_clone/core/constants.dart';
 import 'package:gymshark_clone/domain/models/category.dart';
@@ -109,13 +109,12 @@ class _ExplorePageState extends State<ExplorePage> {
               children: [
                 // Header Title and Account
                 HeaderRow(
-                    pageTitle: pageTitle, accountInitials: accountInitials),
-
-                // Search Bar
-                Padding(
-                  padding: Constants.padding,
+                  pageTitle: pageTitle,
+                  accountInitials: accountInitials,
                   child: CustomSearchBar(controller: searchController),
                 ),
+
+                // Search Bar
 
                 // Categories
                 ListView.builder(

@@ -95,7 +95,8 @@ class LargeProductTile extends StatelessWidget {
                               ),
                               const SizedBox(height: 5),
                               TextBody(
-                                text: '€${product.price}',
+                                text:
+                                    '€${product.variants[0].price.toString()}',
                                 color: Colors.white,
                               ),
                             ],

@@ -18,6 +18,26 @@ class TextDisplay extends StatelessWidget {
   }
 }
 
+class TextMassive extends StatelessWidget {
+  const TextMassive({
+    super.key,
+    required this.text,
+    this.color,
+  });
+
+  final String text;
+  final Color? color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(text,
+        style: Theme.of(context).textTheme.displayLarge!.copyWith(
+              color: color ?? Theme.of(context).primaryColor,
+              fontWeight: FontWeight.bold,
+            ));
+  }
+}
+
 class TextHeadline extends StatelessWidget {
   const TextHeadline({
     super.key,
