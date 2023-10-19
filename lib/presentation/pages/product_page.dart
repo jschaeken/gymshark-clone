@@ -146,7 +146,6 @@ Quisque euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, eget aliqu
           scrollController.offset > 70) {
         setState(() {
           overlayAddToBag = true;
-          print('overlayAddToBag: $overlayAddToBag');
         });
       } else if (overlayAddToBag &&
           (scrollController.position.userScrollDirection ==
@@ -154,7 +153,6 @@ Quisque euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, eget aliqu
               scrollController.offset < 70)) {
         setState(() {
           overlayAddToBag = false;
-          print('overlayAddToBag: $overlayAddToBag');
         });
       }
     });

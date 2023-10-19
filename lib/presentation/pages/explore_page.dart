@@ -63,7 +63,6 @@ class _ExplorePageState extends State<ExplorePage> {
           scrollController.offset > 70) {
         setState(() {
           overlaySearchBar = true;
-          print('overlaySearchBar: $overlaySearchBar');
         });
       } else if (overlaySearchBar &&
           (scrollController.position.userScrollDirection ==
@@ -71,7 +70,6 @@ class _ExplorePageState extends State<ExplorePage> {
               scrollController.offset < 70)) {
         setState(() {
           overlaySearchBar = false;
-          print('overlaySearchBar: $overlaySearchBar');
         });
       }
     });
