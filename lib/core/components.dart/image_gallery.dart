@@ -18,7 +18,7 @@ class ImageGallery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 500,
+      height: 468,
       child: GestureDetector(
         onTap: () => onTap(imageIndex),
         child: Stack(
@@ -54,7 +54,7 @@ class ImageGallery extends StatelessWidget {
                             decoration: BoxDecoration(
                               borderRadius: Constants.borderRadius,
                               color: i == imageIndex
-                                  ? Theme.of(context).canvasColor
+                                  ? Theme.of(context).primaryColor
                                   : Colors.transparent,
                             ),
                           ),

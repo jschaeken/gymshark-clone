@@ -200,6 +200,7 @@ Quisque euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, eget aliqu
                     changeSelectedVariantIndex: changeSelectedVariantIndex,
                   ),
 
+                  const StandardSpacing(),
                   // Product Details
                   Padding(
                     padding: Constants.padding,
@@ -208,10 +209,10 @@ Quisque euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, eget aliqu
                       children: [
                         // Product Name and price row
                         Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Expanded(
-                              child: TextBody(text: product.name),
-                            ),
+                            TextBody(text: product.name),
                             TextSubHeadline(
                               text:
                                   '€${product.variants[selectedVariantIndex].price.toStringAsFixed(2)}',
@@ -219,13 +220,17 @@ Quisque euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, eget aliqu
                           ],
                         ),
 
-                        const StandardSpacing(),
+                        const StandardSpacing(
+                          multiplier: 0.5,
+                        ),
                         //Variant Name
                         TextBody(
                             text: product.variants[selectedVariantIndex].name,
                             color: Theme.of(context).unselectedWidgetColor),
 
-                        const StandardSpacing(),
+                        const StandardSpacing(
+                          multiplier: 0.5,
+                        ),
 
                         //Color
                         TextBody(
@@ -233,7 +238,7 @@ Quisque euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, eget aliqu
                           color: Theme.of(context).unselectedWidgetColor,
                         ),
 
-                        const StandardSpacing(),
+                        const StandardSpacing(multiplier: 2),
 
                         // Reviews by stars
                         Row(
@@ -245,12 +250,12 @@ Quisque euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, eget aliqu
                                 child: product.rating.average.toInt() > i
                                     ? const CustomIcon(
                                         Icons.star,
-                                        size: 16,
+                                        size: 14,
                                       )
                                     :
                                     //Mask over the star to show 10ths of a star
                                     CustomStar(
-                                        size: 16,
+                                        size: 14,
                                         fillAmount:
                                             product.rating.average - i > 0
                                                 ? product.rating.average - i
@@ -275,7 +280,7 @@ Quisque euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, eget aliqu
                           ],
                         ),
 
-                        const StandardSpacing(),
+                        const StandardSpacing(multiplier: 2),
 
                         // Select Size Title and Size Guide
                         Row(
@@ -291,16 +296,15 @@ Quisque euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, eget aliqu
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   CustomIcon(
-                                    CupertinoIcons.info_circle_fill,
+                                    CupertinoIcons.info_circle,
                                     color: Theme.of(context).primaryColor,
-                                    size: 20,
+                                    size: 18,
                                   ),
                                   const SizedBox(
                                     width: 5,
                                   ),
                                   const TextBody(
                                     text: 'Size Guide',
-                                    fontWeight: FontWeight.w900,
                                     decoration: TextDecoration.underline,
                                   ),
                                 ],
@@ -353,9 +357,9 @@ Quisque euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, eget aliqu
                                     color: Theme.of(context).cardColor,
                                     shape: BoxShape.circle,
                                   ),
-                                  child: Padding(
-                                    padding: Constants.padding,
-                                    child: const Center(
+                                  child: const Padding(
+                                    padding: EdgeInsets.all(9),
+                                    child: Center(
                                       child: CustomIcon(
                                         Icons.favorite_border,
                                       ),
@@ -367,27 +371,26 @@ Quisque euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, eget aliqu
                           ],
                         ),
 
-                        const StandardSpacing(),
+                        const StandardSpacing(
+                          multiplier: 2,
+                        ),
 
                         // Accent Add to bag button
-                        SizedBox(
-                          height: 50,
-                          child: buttons.CtaButton(
-                            onTap: () {},
-                            child: const Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                CustomIcon(
-                                  CupertinoIcons.bag_fill,
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                TextSubHeadline(
-                                  text: 'Add to Bag',
-                                ),
-                              ],
-                            ),
+                        buttons.CtaButton(
+                          onTap: () {},
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              CustomIcon(
+                                CupertinoIcons.bag_fill,
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              TextSubHeadline(
+                                text: 'Add to Bag',
+                              ),
+                            ],
                           ),
                         ),
 
@@ -415,43 +418,32 @@ Quisque euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, eget aliqu
                           ),
                         ),
 
-                        const StandardSpacing(),
+                        const StandardSpacing(multiplier: 4),
 
                         // Share button
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Padding(
-                              padding: Constants.padding,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: Theme.of(context).cardColor,
-                                  borderRadius: Constants.borderRadius,
+                        Center(
+                          child: buttons.CtaButton(
+                            width: 120,
+                            color: Theme.of(context).cardColor,
+                            onTap: () {},
+                            child: const Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Center(
+                                  child: CustomIcon(
+                                    CupertinoIcons.share,
+                                  ),
                                 ),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Padding(
-                                      padding: Constants.padding,
-                                      child: const Center(
-                                        child: CustomIcon(
-                                          CupertinoIcons.share,
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding:
-                                          Constants.padding.copyWith(left: 0),
-                                      child: const TextBody(text: 'Share'),
-                                    ),
-                                  ],
+                                SizedBox(
+                                  width: 5,
                                 ),
-                              ),
+                                TextBody(text: 'Share'),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
 
-                        const StandardSpacing(),
+                        const StandardSpacing(multiplier: 2),
 
                         // Description
                         const TextSubHeadline(
@@ -461,7 +453,9 @@ Quisque euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, eget aliqu
                           text: product.description,
                         ),
 
-                        const StandardSpacing(),
+                        const StandardSpacing(
+                          multiplier: 2,
+                        ),
 
                         // Material
                         const TextSubHeadline(
@@ -631,11 +625,20 @@ Quisque euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, eget aliqu
   Future<Size?> showSizeModal(
       String productName, ProductVariant productVariant) async {
     return await showModalBottomSheet(
+      backgroundColor: Colors.transparent,
       context: context,
+      showDragHandle: true,
+      isScrollControlled: true,
       builder: (BuildContext context) {
-        return SingleChildScrollView(
-          child: Padding(
-            padding: Constants.padding,
+        return Container(
+          decoration: BoxDecoration(
+            color: Theme.of(context).canvasColor,
+            borderRadius: Constants.borderRadius.copyWith(
+              bottomLeft: const Radius.circular(0),
+              bottomRight: const Radius.circular(0),
+            ),
+          ),
+          child: SingleChildScrollView(
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Padding(
@@ -689,37 +692,39 @@ Quisque euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, eget aliqu
                 child: const TextHeadline(text: 'Select Size'),
               ),
               ListView.builder(
+                padding: Constants.padding.copyWith(top: 0, bottom: 0),
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: productVariant.sizes!.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                      padding: Constants.innerPadding,
-                      child: ListTile(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: Constants.borderRadius,
-                          ),
-                          onTap: () {
-                            Navigator.pop(
-                                context, productVariant.sizes![index]);
-                          },
-                          title: TextBody(
-                            text: productVariant.sizes![index].name,
-                          ),
-                          trailing: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Padding(
-                                padding: Constants.padding.copyWith(left: 0),
-                                child: const TextSubHeadline(
-                                  text: 'Select',
-                                ),
+                  return Material(
+                    color: Colors.transparent,
+                    child: ListTile(
+                        contentPadding: EdgeInsets.zero,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: Constants.borderRadius,
+                        ),
+                        onTap: () {
+                          Navigator.pop(context, productVariant.sizes![index]);
+                        },
+                        title: TextBody(
+                          text: productVariant.sizes![index].name,
+                        ),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Padding(
+                              padding: Constants.padding.copyWith(left: 0),
+                              child: const TextSubHeadline(
+                                text: 'Select',
                               ),
-                              const CustomIcon(
-                                Icons.add_circle_outline_rounded,
-                              ),
-                            ],
-                          )));
+                            ),
+                            const CustomIcon(
+                              Icons.add_circle_outline_rounded,
+                            ),
+                          ],
+                        )),
+                  );
                 },
               )
             ]),

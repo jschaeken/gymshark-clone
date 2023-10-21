@@ -17,7 +17,7 @@ class VariantScrollable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 105,
+      height: 85,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: product.variants.length,
@@ -30,7 +30,7 @@ class VariantScrollable extends StatelessWidget {
                 changeSelectedVariantIndex(index);
               },
               child: Container(
-                width: 80,
+                width: 61,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                 ),

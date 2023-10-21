@@ -106,13 +106,19 @@ class CustomSearchBar extends StatelessWidget {
 class StandardSpacing extends StatelessWidget {
   const StandardSpacing({
     super.key,
+    this.multiplier = 1,
   });
+
+  final double multiplier;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       child: Padding(
-        padding: Constants.padding.copyWith(top: 0),
+        padding: Constants.padding.copyWith(
+          top: 0,
+          bottom: Constants.padding.bottom * multiplier,
+        ),
       ),
     );
   }

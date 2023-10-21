@@ -51,8 +51,10 @@ class TextHeadline extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(text,
-        style:
-            Theme.of(context).textTheme.headlineMedium!.copyWith(color: color));
+        style: Theme.of(context)
+            .textTheme
+            .headlineMedium!
+            .copyWith(color: color, fontSize: 18));
   }
 }
 
@@ -74,7 +76,7 @@ class TextSubHeadline extends StatelessWidget {
         style: Theme.of(context)
             .textTheme
             .headlineMedium!
-            .copyWith(color: color, fontWeight: fontWeight, fontSize: 18));
+            .copyWith(color: color, fontWeight: fontWeight, fontSize: 17));
   }
 }
 
@@ -96,6 +98,9 @@ class TextBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(text,
         style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-            color: color, fontWeight: fontWeight, decoration: decoration));
+            color: color,
+            fontWeight: fontWeight,
+            decoration: decoration,
+            fontSize: 15));
   }
 }
