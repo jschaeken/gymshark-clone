@@ -36,38 +36,50 @@ class _MainViewState extends State<MainView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: IndexedStack(
-          index: context.watch<PageNavigationProvider>().currentIndex,
-          children: [
-            ...tabBarPages.map(
-              (page) => OffstageNavigator(
-                index: tabBarPages.indexOf(page),
-                navKey: keys[tabBarPages.indexOf(page)],
-                child: page,
-              ),
+    double screenHeight = MediaQuery.of(context).size.height;
+    double correspondingWidth = MediaQuery.of(context).size.width;
+    return Stack(
+      children: [
+        Scaffold(
+          body: SafeArea(
+            child: IndexedStack(
+              index: context.watch<PageNavigationProvider>().currentIndex,
+              children: [
+                ...tabBarPages.map(
+                  (page) => OffstageNavigator(
+                    index: tabBarPages.indexOf(page),
+                    navKey: keys[tabBarPages.indexOf(page)],
+                    child: page,
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
+          bottomNavigationBar: BottomNavigationBar(
+            items: tabBarItems
+                .map((item) => BottomNavigationBarItem(
+                    icon: Icon(item.icon[0]),
+                    activeIcon: Icon(item.icon[1]),
+                    label: item.title))
+                .toList(),
+            currentIndex: context.watch<PageNavigationProvider>().currentIndex,
+            selectedItemColor: Theme.of(context).primaryColor,
+            unselectedItemColor:
+                Theme.of(context).primaryColor.withOpacity(0.5),
+            showUnselectedLabels: false,
+            showSelectedLabels: false,
+            type: BottomNavigationBarType.fixed,
+            onTap: (value) {
+              context.read<PageNavigationProvider>().changeIndex(value);
+            },
+          ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: tabBarItems
-            .map((item) => BottomNavigationBarItem(
-                icon: Icon(item.icon[0]),
-                activeIcon: Icon(item.icon[1]),
-                label: item.title))
-            .toList(),
-        currentIndex: context.watch<PageNavigationProvider>().currentIndex,
-        selectedItemColor: Theme.of(context).primaryColor,
-        unselectedItemColor: Theme.of(context).primaryColor.withOpacity(0.5),
-        showUnselectedLabels: false,
-        showSelectedLabels: false,
-        type: BottomNavigationBarType.fixed,
-        onTap: (value) {
-          context.read<PageNavigationProvider>().changeIndex(value);
-        },
-      ),
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Material(
+              child: Text('Height: $screenHeight\nWidth: $correspondingWidth')),
+        )
+      ],
     );
   }
 }
